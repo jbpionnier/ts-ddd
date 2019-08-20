@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "@jbpionnier/eslint-config-node/tslint-immutable"
+  ],
+  "rules": {
+    "no-any": false,
+    "readonly-array": false,
+    "array-type": [true, "array"],
+    "prefer-readonly": true,
+    "strict-comparisons": [true, { "allow-object-equal-comparison": true }],
+    "no-async-without-await": false,
+    "no-use-before-declare": false
+  }
+}
