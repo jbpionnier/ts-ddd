@@ -5,6 +5,21 @@
   "author": "Jean-Baptiste Pionnier",
   "license": "MIT",
   "repository": "jbpionnier/ts-ddd",
+  "keywords": [
+    "DDD",
+    "CQRS",
+    "ES",
+    "event sourcing",
+    "command",
+    "query",
+    "event bus",
+    "query bus",
+    "command bus",
+    "base",
+    "aggregate",
+    "domain",
+    "typescript"
+  ],
   "engines": {
     "node": ">= 8.0.0"
   },
