@@ -1,5 +1,3 @@
-import 'reflect-metadata'
-
 export const SAGA_METADATA = Symbol.for('Saga')
 
 export const Saga = (): PropertyDecorator => {
