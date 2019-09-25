@@ -1,14 +1,14 @@
-import { DomainEvent, DomainEventStream } from '../ddd'
+import { IEvent } from '../ddd'
+import { EventStream } from '../event'
 
 type ResponseType = string | boolean | object | undefined
-
-type DomainEvents = readonly (DomainEvent<any> | undefined)[]
+type IEvents = ReadonlyArray<IEvent | undefined>
 
 export class CommandResponse {
   readonly value: ResponseType
-  readonly events: DomainEventStream
+  readonly events: EventStream
 
-  private constructor(value: ResponseType, events: DomainEventStream) {
+  private constructor(value: ResponseType, events: EventStream) {
     this.value = value
     this.events = events
   }
@@ -17,11 +17,11 @@ export class CommandResponse {
     return !this.events.isEmpty()
   }
 
-  static withValue(value: ResponseType, ...events: DomainEvents): CommandResponse {
-    return new CommandResponse(value, new DomainEventStream(events))
+  static withValue(value: ResponseType, ...events: IEvents): CommandResponse {
+    return new CommandResponse(value, new EventStream(events))
   }
 
-  static withEvents(...events: DomainEvents): CommandResponse {
-    return new CommandResponse(undefined, new DomainEventStream(events))
+  static withEvents(...events: IEvents): CommandResponse {
+    return new CommandResponse(undefined, new EventStream(events))
   }
 }
