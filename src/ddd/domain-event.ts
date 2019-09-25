@@ -1,10 +1,11 @@
 import { ensure, isDefined, TinyType } from 'tiny-types'
 import { AggregateId, AggregateRoot } from './aggregate-root'
 
-export abstract class IEvent extends TinyType {}
+export abstract class IEvent extends TinyType {
+  readonly timestamp: Date = new Date()
+}
 
 export abstract class DomainEvent<Entity extends AggregateRoot<any>> extends IEvent {
-  readonly timestamp: Date = new Date()
   readonly aggregateId: AggregateId
   readonly aggregateType: string
   readonly aggregateVersion: number

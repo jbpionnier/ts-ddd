@@ -3,6 +3,7 @@
     "@jbpionnier/eslint-config-node/tslint-immutable"
   ],
   "rules": {
+    "invalid-void": false,
     "no-any": false,
     "readonly-array": false,
     "array-type": [true, "array"],

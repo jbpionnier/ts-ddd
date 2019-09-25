@@ -1,6 +1,6 @@
 {
   "name": "@jbpionnier/ddd",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Domain-Driven Design TypeScript",
   "author": "Jean-Baptiste Pionnier",
   "license": "MIT",
@@ -43,14 +43,14 @@
   },
   "devDependencies": {
     "@jbpionnier/eslint-config-node": "^1.7.9",
-    "@types/node": "^12.7.2",
+    "@types/node": "^12.7.7",
     "prettier": "^1.17.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.0",
-    "tslint": "^5.16.0",
+    "tslint": "^5.20.0",
     "tslint-consistent-codestyle": "^1.15.1",
     "tslint-immutable": "^6.0.1",
     "tslint-sonarts": "^1.9.0",
-    "typescript": "^3.4.5"
+    "typescript": "^3.6.3"
   }
 }
