@@ -37,5 +37,5 @@ function isEntity(v?: object): boolean {
 }
 
 export function isNotEmpty(): Predicate<string | ReadonlyArray<string>> {
-  return Predicate.to(`be not empty`, (value: string | ReadonlyArray<string>) => !(value == null || value.length === 0))
+  return Predicate.to(`be not empty`, (value: string | ReadonlyArray<string>): boolean => !(value == null || value.length === 0))
 }

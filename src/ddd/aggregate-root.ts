@@ -10,11 +10,11 @@ export abstract class AggregateRoot<TId extends AggregateId> extends Entity<TId>
   _version: number = 0
 
   loadFromHistory(stream: DomainEventStream): void {
-    stream.events.forEach((event: DomainEvent<any>) => this.apply(event))
+    stream.events.forEach((event: DomainEvent<any>): any => this.apply(event))
   }
 
   apply(...events: readonly DomainEvent<AggregateRoot<TId>>[]): readonly DomainEvent<AggregateRoot<TId>>[] {
-    events.forEach((event: DomainEvent<AggregateRoot<TId>>) => {
+    events.forEach((event: DomainEvent<AggregateRoot<TId>>): void => {
       this._version = event.aggregateVersion
       const handler = this.getEventHandler(event)
       handler && handler.call(this, event)

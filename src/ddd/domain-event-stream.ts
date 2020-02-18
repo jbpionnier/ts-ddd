@@ -15,7 +15,7 @@ export class DomainEventStream {
   }
 
   static withEvents(stream: EventStream): DomainEventStream {
-    const domainEvents: DomainEvents = stream.events.filter((event: unknown) => event instanceof DomainEvent) as any
+    const domainEvents: DomainEvents = stream.events.filter((event: unknown): boolean => event instanceof DomainEvent) as any
     return new DomainEventStream(domainEvents)
   }
 }

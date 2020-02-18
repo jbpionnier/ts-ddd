@@ -6,7 +6,7 @@ export class EventStream {
   readonly events: ReadonlyArray<IEvent>
 
   constructor(events: IEvents) {
-    this.events = (events || []).filter((event: IEvent | undefined) => !!event) as ReadonlyArray<IEvent>
+    this.events = (events || []).filter((event: IEvent | undefined): boolean => !!event) as ReadonlyArray<IEvent>
   }
 
   isEmpty(): boolean {
