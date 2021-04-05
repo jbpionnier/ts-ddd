@@ -32,8 +32,8 @@ export abstract class Entity<TId extends Identifier> extends TinyType {
   }
 }
 
-function isEntity(v?: object): boolean {
-  return v instanceof Entity
+function isEntity(object: object): boolean {
+  return object instanceof Entity
 }
 
 export function isNotEmpty(): Predicate<string | ReadonlyArray<string>> {

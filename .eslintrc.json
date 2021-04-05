@@ -1,0 +1,49 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "impliedStrict": true,
+      "jsx": false
+    }
+  },
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "@jbpionnier/eslint-config-node",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "comma-dangle": ["error", "always-multiline"],
+    "id-length": ["warn", { "exceptions": ["q"] } ],
+    "operator-linebreak": ["error", "before"],
+    "strict": "error",
+    "no-import-assign": "error",
+    "no-useless-return": "error",
+    "func-names": "error",
+
+    // recommended off
+    "no-implicit-coercion": "off",
+
+    // Complexity
+    "max-depth": ["warn", 2],
+    "max-nested-callbacks": ["warn", 1],
+    "max-statements": ["warn", 10],
+    "complexity": ["warn", 4],
+
+    // Typescript: enable specific rules
+    "@typescript-eslint/no-useless-constructor": "error",
+    "@typescript-eslint/no-for-in-array": "error",
+    "@typescript-eslint/no-this-alias": "error",
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_", "ignoreRestSiblings": true }],
+    "@typescript-eslint/member-delimiter-style": [ "error", { "multiline": {"delimiter": "none"}, "singleline": {"delimiter": "semi"} } ],
+    "@typescript-eslint/explicit-function-return-type": ["error", { "allowExpressions": true }],
+
+    // Typescript: disable recommended rules
+    "indent": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/ban-ts-comment": "off"
+  }
+}

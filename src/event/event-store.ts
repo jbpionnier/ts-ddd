@@ -12,5 +12,9 @@ export abstract class EventStore {
 
   abstract loadByIds(aggregateIds: ReadonlyArray<string>): Promise<EventsByAggregateId>
 
+  abstract loadFromAuthor(author: string): Promise<DomainEventStream>
+
   abstract allOf(aggregateType: Type<AggregateRoot<any>>): Promise<EventsByAggregateId>
+
+  abstract stats(): Promise<object>
 }

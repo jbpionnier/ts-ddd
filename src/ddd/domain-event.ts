@@ -16,7 +16,6 @@ export abstract class DomainEvent<Entity extends AggregateRoot<any>> extends IEv
     this.aggregateId = aggregate.id
     this.aggregateType = getAggregateName(aggregate)
     // TODO move increment version
-    // tslint:disable-next-line
     this.aggregateVersion = ++aggregate._version
   }
 }

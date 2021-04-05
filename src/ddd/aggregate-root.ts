@@ -6,8 +6,7 @@ import { Entity, Identifier } from './entity'
 export class AggregateId extends Identifier {}
 
 export abstract class AggregateRoot<TId extends AggregateId> extends Entity<TId> {
-  // tslint:disable-next-line:readonly-keyword
-  _version: number = 0
+  _version = 0
 
   loadFromHistory(stream: DomainEventStream): void {
     stream.events.forEach((event: DomainEvent<any>): any => this.apply(event))
