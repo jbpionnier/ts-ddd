@@ -1,4 +1,5 @@
 import { ensure, isDefined, TinyType } from 'tiny-types'
+import { getConstrutorName } from '../index'
 import { AggregateId, AggregateRoot } from './aggregate-root'
 
 export abstract class IEvent extends TinyType {
@@ -14,13 +15,10 @@ export abstract class DomainEvent<Entity extends AggregateRoot<any>> extends IEv
     super()
     ensure(this.constructor.name, aggregate, isDefined())
     this.aggregateId = aggregate.id
-    this.aggregateType = getAggregateName(aggregate)
+    this.aggregateType = getConstrutorName(aggregate)
     // TODO move increment version
     this.aggregateVersion = ++aggregate._version
   }
 }
 
-function getAggregateName(aggregate: object): string {
-  const { constructor } = Object.getPrototypeOf(aggregate)
-  return constructor.name as string
-}
+

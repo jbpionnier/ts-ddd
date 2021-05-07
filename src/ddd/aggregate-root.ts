@@ -1,4 +1,5 @@
 import { JSONObject } from 'tiny-types'
+import { getConstrutorName } from '../index'
 import { DomainEvent } from './domain-event'
 import { DomainEventStream } from './domain-event-stream'
 import { Entity, Identifier } from './entity'
@@ -27,13 +28,8 @@ export abstract class AggregateRoot<TId extends AggregateId> extends Entity<TId>
   }
 
   protected getEventHandler(event: DomainEvent<AggregateRoot<TId>>): any {
-    const handler = `on${this.getEventName(event)}`
+    const handler = `on${getConstrutorName(event)}`
     // @ts-ignore
     return this[handler]
-  }
-
-  protected getEventName(event: DomainEvent<AggregateRoot<TId>>): string {
-    const { constructor } = Object.getPrototypeOf(event)
-    return constructor.name as string
   }
 }
