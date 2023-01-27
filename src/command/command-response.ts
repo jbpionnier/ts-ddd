@@ -1,7 +1,7 @@
 import { IEvent } from '../ddd'
 import { EventStream } from '../event'
 
-type ResponseType = string | boolean | object | undefined
+type ResponseType = string | number | boolean | object | undefined
 type IEvents = ReadonlyArray<IEvent | undefined>
 
 export class CommandResponse {
