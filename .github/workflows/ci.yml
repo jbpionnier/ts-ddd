@@ -1,0 +1,44 @@
+name: ci
+on:
+  workflow_dispatch:
+  push:
+    paths-ignore:
+      - "*.md"
+    branches:
+      - master
+  pull_request:
+    paths-ignore:
+      - "*.md"
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ "16", "20" ]
+    name: Build on Node ${{ matrix.node }}
+    timeout-minutes: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm install
+      - run: npm run build
+
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ "16", "20" ]
+    name: Lint on Node ${{ matrix.node }}
+    timeout-minutes: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm install
+      - run: npm run lint
